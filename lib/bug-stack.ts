@@ -43,6 +43,13 @@ export class BugStack extends Stack {
         entry: path.join(__dirname, './lambda/index.ts'),
         bundling: {
           externalModules: ['aws-sdk'],
+          nodeModules: [
+            'base64-js',
+          ]
+        },
+        environment: {
+          KEY_ID: customSenderKmsKey.keyArn,
+          KEY_ALIAS: customSenderKmsKeyAlias,
         },
       }
     )
